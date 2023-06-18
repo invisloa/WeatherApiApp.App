@@ -4,11 +4,20 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:WeatherApiApp"
+    xmlns:views="clr-namespace:WeatherApiApp.Views"
+
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
+    <FlyoutItem Title="SomeTitle" x:Name="WeatherFlyout">
+        
+        <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+        <ShellContent Icon="appicon.svg"
+            Title="Dashboar2"
+            ContentTemplate="{DataTemplate views:WeatherCurrentView}"
+            Route="Dashboa2" />
+    </FlyoutItem>
 
 </Shell>
