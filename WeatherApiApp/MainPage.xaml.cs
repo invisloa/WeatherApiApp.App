@@ -1,4 +1,6 @@
-﻿namespace WeatherApiApp;
+﻿using WeatherApiApp.Services.WeatherServices;
+
+namespace WeatherApiApp;
 
 public partial class MainPage : ContentPage
 {
@@ -9,7 +11,7 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 	}
 
-	private async void OnCounterClicked(object sender, EventArgs e)
+	private void OnCounterClicked(object sender, EventArgs e)
 	{
 		/*		count++;
 
@@ -20,7 +22,12 @@ public partial class MainPage : ContentPage
 
 				SemanticScreenReader.Announce(CounterBtn.Text);
 		*/
-		await SendRequestAsync(new Uri("https://api.tomorrow.io/v4/weather/realtime?location=toronto&apikey=Cj66O8OLTih8hPqA7AOKfevJuX11N1hp"));
+		var x = new WeatherServiceTommorowIO();
+		x.GetWeatherCurrentAsync();
+		int i = 0;
+
+
+		//await SendRequestAsync(new Uri("https://api.tomorrow.io/v4/weather/realtime?location=toronto&apikey=Cj66O8OLTih8hPqA7AOKfevJuX11N1hp"));
 		Console.WriteLine("Hello, World!");
 
 
