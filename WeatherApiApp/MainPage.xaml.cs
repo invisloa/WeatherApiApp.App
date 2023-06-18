@@ -11,25 +11,13 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
+	private async void OnCounterClicked(object sender, EventArgs e)
 	{
-		/*		count++;
-
-				if (count == 1)
-					CounterBtn.Text = $"Clicked {count} time";
-				else
-					CounterBtn.Text = $"Clicked {count} times";
-
-				SemanticScreenReader.Announce(CounterBtn.Text);
-		*/
 		var x = new WeatherServiceTommorowIO();
-		x.GetWeatherCurrentAsync();
+		await x.GetWeatherCurrentAsync();
 		int i = 0;
 
-
-		//await SendRequestAsync(new Uri("https://api.tomorrow.io/v4/weather/realtime?location=toronto&apikey=Cj66O8OLTih8hPqA7AOKfevJuX11N1hp"));
 		Console.WriteLine("Hello, World!");
-
 
 	}
 	static async Task SendRequestAsync(Uri uri)

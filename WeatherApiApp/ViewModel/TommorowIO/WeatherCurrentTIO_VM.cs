@@ -51,12 +51,18 @@ namespace WeatherApiApp.ViewModel.TommorowIO
 		{
 			WeatherData = Factory.CreateWeatherCurrentDataModel;
 			IGetWeatherDataSvc _currentWeatherService = Factory.GetCurrentWeatherService;
-			WeatherData = _currentWeatherService.GetWeatherCurrentAsync().Result;
+
+			// Call async method but don't wait for it in constructor
+			InitializeAsync(_currentWeatherService);
 
 			GetCurrentWeatherCommand = new RelayCommand(GetCurrentWeather);
-			GetCurrentWeather();
 		}
 
+		private async void InitializeAsync(IGetWeatherDataSvc currentWeatherService)
+		{
+			// Now we can await the method properly
+			WeatherData = await currentWeatherService.GetWeatherCurrentAsync();
+		}
 		private async void GetCurrentWeather()
 		{
 			WeatherData = await _dataService.GetWeatherCurrentAsync();

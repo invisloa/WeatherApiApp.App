@@ -38,7 +38,7 @@ namespace WeatherApiApp.Services.WeatherServices
 			HttpResponseMessage response;
 			try
 			{
-				response = await client.GetAsync(uri);
+				response = await client.GetAsync(uri).ConfigureAwait(false);
 			}
 			catch (Exception ex)
 			{
