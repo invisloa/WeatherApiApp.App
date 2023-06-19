@@ -16,7 +16,7 @@
         Route="MainPage" />
         <ShellContent Icon="appicon.svg"
             Title="Dashboar2"
-            ContentTemplate="{DataTemplate views:WeatherCurrentView}"
+            ContentTemplate="{DataTemplate views:WeatherCurrentPage}"
             Route="Dashboa2" />
     </FlyoutItem>
 

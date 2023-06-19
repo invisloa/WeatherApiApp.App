@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherApiApp.Views.WeatherCurrentPage"
+             Title="WeatherCurrentPage">
+    <StackLayout>
+        <Label Text="ASDZXC" />
+        <Label Text="{Binding WindSpeed.Name}" />
+        <Label Text="{Binding WindSpeed.Value}" />
+    </StackLayout>
+</ContentPage>
