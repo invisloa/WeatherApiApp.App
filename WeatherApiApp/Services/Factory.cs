@@ -15,6 +15,6 @@ namespace WeatherApiApp.Services
 		public static IGetWeatherDataSvc CreateGetWeatherData => new WeatherServiceTommorowIO();
 		public static IWeatherCurrentModel CreateWeatherCurrentDataModel => new WeatherModelTommorowIOCurrent();
 
-		public static IGetWeatherDataSvc GetCurrentWeatherService => new WeatherServiceTommorowIO();
+		public static IGetWeatherDataSvc CreateCurrentWeatherService => new WeatherServiceTommorowIO();
 	}
 }

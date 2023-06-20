@@ -7,10 +7,10 @@ public partial class WeatherCurrentPage : ContentPage
 {
 	public WeatherCurrentPage()
 	{
-		var viewModel = new WeatherApiApp.ViewModel.TommorowIO.WeatherCurrentTIO_VM(Factory.CreateWeatherCurrentDataModel);
-		IGetWeatherDataSvc _currentWeatherService = Factory.GetCurrentWeatherService;
+		var viewModel = new WeatherApiApp.ViewModel.TommorowIO.WeatherCurrentTIO_VM(Factory.CreateCurrentWeatherService);
+/*		IGetWeatherDataSvc _currentWeatherService = Factory.CreateCurrentWeatherService;
 		viewModel.WeatherData = _currentWeatherService.GetWeatherCurrentAsync().Result;
-		InitializeComponent();
+*/		InitializeComponent();
 		BindingContext = viewModel;
 	}
 }

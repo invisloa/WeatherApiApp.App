@@ -49,9 +49,9 @@ namespace WeatherApiApp.ViewModel.TommorowIO
 
 		public ObservableCollection<string> SomeList { get; set; }
 
-		public WeatherCurrentTIO_VM(IWeatherCurrentModel weatherCurrentModel)
+		public WeatherCurrentTIO_VM(IGetWeatherDataSvc _currentWeatherService)
 		{
-			WeatherData = weatherCurrentModel;
+			WeatherData = _currentWeatherService.GetWeatherCurrentAsync().Result;
 
 			GetCurrentWeatherCommand = new RelayCommand(GetCurrentWeather);
 		}

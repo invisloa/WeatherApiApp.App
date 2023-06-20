@@ -14,6 +14,6 @@ namespace WeatherApiApp.ViewModel.TommorowIO
 
 		protected Dictionary<string, string> _weatherProperties = new Dictionary<string, string>();
 		protected IWeatherCurrentModel _weatherDataModel;
-		protected IGetWeatherDataSvc _dataService = Factory.CreateGetWeatherData;
+		protected IGetWeatherDataSvc _dataService;
 	}
 }
