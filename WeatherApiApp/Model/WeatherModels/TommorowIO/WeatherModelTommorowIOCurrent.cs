@@ -10,59 +10,10 @@ namespace WeatherApiApp.Model.TommorowIO
 	public class WeatherModelTommorowIOCurrent : WeatherModelTommorowIOBase
 	{
 		public Location location { get; set; }
-/*		public int code { get; set; }
-		public string type { get; set; }
-		public string message { get; set; }
-*/
+
 
 		#region Interface Properties
-/*		private WeatherProperty _errorCode;
-		public override WeatherProperty ErrorCode
-		{
-			get
-			{
-				return _errorCode ?? (_errorCode = new WeatherProperty("Temperature", code.ToString()));
-			}
-			set
-			{
-				if (int.TryParse(value.Value, out int errorCode))
-				{
-					_errorCode = value;
-				}
-				else
-				{
-					// Handle the case when parsing fails
-					throw new ArgumentException("Invalid _errorCode value.");
-				}
-			}
-		}
 
-		private WeatherProperty _errorType;
-		public override WeatherProperty ErrorType
-		{
-			get
-			{
-				return _errorType ?? (_errorType = new WeatherProperty("ErrorType", _errorType.ToString()));
-			}
-			set
-			{
-					_errorType = value;
-			}
-		}
-
-		private WeatherProperty _message;
-		public override WeatherProperty ErrorMessage
-		{
-			get
-			{
-				return _message ?? (_message = new WeatherProperty("ErrorMessage", _message.ToString()));
-			}
-			set
-			{
-				_message = value;
-			}
-		}
-*/
 		private WeatherProperty _temperature;
 		public override WeatherProperty Temperature
 		{
@@ -155,7 +106,7 @@ namespace WeatherApiApp.Model.TommorowIO
 		private WeatherProperty _locationName;
 		public override WeatherProperty LocationName
 		{
-			get => _locationName ?? (_locationName = new WeatherProperty("LocationName", location.name));
+			get => _locationName ?? (_locationName = new WeatherProperty("Location Name", location.name));
 			set
 			{
 				if (!string.IsNullOrEmpty(value.Value))
