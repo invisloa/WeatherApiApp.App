@@ -10,28 +10,22 @@ namespace WeatherApiApp.Model.TommorowIO
 {
 	public abstract class WeatherModelTommorowIOBase : IWeatherCurrentModel
 	{
-		[JsonPropertyName("location")]
-		public LocationApi Location { get; set; }
-		public class LocationApi
+
+
+		public class Location
 		{
-			[JsonPropertyName("lat")]
-			public double Latitude { get; set; }
-			[JsonPropertyName("lon")]
-			public double Longitude { get; set; }
-			[JsonPropertyName("name")]
-			public string LocationName { get; set; }
-			[JsonPropertyName("type")]
-			public string LocationType { get; set; }
+			public double lat { get; set; }
+			public double lon { get; set; }
+			public string name { get; set; }
+			public string type { get; set; }
 		}
-		[JsonPropertyName("code")]
 
-		public int ErrorCode { get; set; }
-		[JsonPropertyName("type")]
-		public string ErrorType { get; set; }
-		[JsonPropertyName("message")]
-		public string ErrorMessage { get; set; }
 
-		public virtual WeatherProperty LocationGPS { get; set; }
+
+/*		public virtual WeatherProperty ErrorCode { get; set; }
+		public virtual WeatherProperty ErrorType { get; set; }
+		public virtual WeatherProperty ErrorMessage { get; set; }
+*/		public virtual WeatherProperty LocationGPS { get; set; }
 		public virtual WeatherProperty LocationName { get; set; }
 		public virtual WeatherProperty Time { get; set; }
 		public virtual WeatherProperty Temperature { get; set; }

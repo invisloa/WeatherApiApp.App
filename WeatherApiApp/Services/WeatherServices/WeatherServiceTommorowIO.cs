@@ -14,12 +14,14 @@ namespace WeatherApiApp.Services.WeatherServices
 	{
 		private static readonly HttpClient client = new HttpClient();
 		private const string _myApiKey = "Cj66O8OLTih8hPqA7AOKfevJuX11N1hp";
-		private const string _location = "43.70,-79.42";
+		private const string _location = "Warszawa";
+		private const string _locationGps = "45.654,66.456";
 		IWeatherCurrentModel _weatherCurrentModel = Factory.CreateWeatherCurrentDataModel;
 		
 		private Uri CreateUri(string endpoint)
 		{
-			return new Uri($"https://api.tomorrow.io/v4/weather/{endpoint}?location={_location}&apikey={_myApiKey}");
+			Uri uri = new Uri($"https://api.tomorrow.io/v4/weather/{endpoint}?location={_location}&apikey={_myApiKey}");
+			return uri;
 		}
 		static WeatherServiceTommorowIO()
 		{
@@ -54,7 +56,6 @@ namespace WeatherApiApp.Services.WeatherServices
 			try
 			{ 
 			_weatherCurrentModel = JsonConvert.DeserializeObject<WeatherModelTommorowIOCurrent>(responseBody);  // DESERIALIZE TO A CONCRETE OBJECT TODO CONVERTER IF NEEDED LATER
-
 			return _weatherCurrentModel;
 			}
 			catch (Exception ex)

@@ -7,8 +7,9 @@ public partial class WeatherCurrentPage : ContentPage
 {
 	public WeatherCurrentPage()
 	{
-		var viewModel = new WeatherApiApp.ViewModel.TommorowIO.WeatherCurrentTIO_VM(Factory.CreateCurrentWeatherService);
-		InitializeComponent();
-		BindingContext = viewModel;
+			var viewModel = Factory.CreateCurrentWeatherViewModel;
+			BindingContext = viewModel;
+			InitializeComponent();
+
 	}
 }

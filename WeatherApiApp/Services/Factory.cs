@@ -7,6 +7,7 @@ using WeatherApiApp.Model.TommorowIO;
 using WeatherApiApp.Model.WeatherModels;
 using WeatherApiApp.Services.Interfaces;
 using WeatherApiApp.Services.WeatherServices;
+using WeatherApiApp.ViewModel.TommorowIO;
 
 namespace WeatherApiApp.Services
 {
@@ -16,5 +17,7 @@ namespace WeatherApiApp.Services
 		public static IWeatherCurrentModel CreateWeatherCurrentDataModel => new WeatherModelTommorowIOCurrent();
 
 		public static IGetWeatherDataSvc CreateCurrentWeatherService => new WeatherServiceTommorowIO();
+
+		public static IWeatherCurrentViewModel CreateCurrentWeatherViewModel { get => new WeatherCurrentTIO_VM(Factory.CreateCurrentWeatherService); }
 	}
 }

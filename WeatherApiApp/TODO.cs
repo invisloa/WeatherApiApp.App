@@ -1,4 +1,4 @@
-﻿
+﻿//{"code":400001,"type":"Invalid Query Parameters","message":"The entries provided as query parameters were not valid for the request. Fix parameters and try again: Key: 'LeanTimelineApiRequestPayload.LocationName' Error:Field validation for 'LocationName' failed on the 'required' tag"}
 
 #region current
 // make at least one working weather view 
@@ -17,7 +17,7 @@
 
 
 #region lowPriority
-// ApiWeather Location from my current location
+// ApiWeather LocationName from my current locations
 // check values in models (int-double-object)
 #endregion
 

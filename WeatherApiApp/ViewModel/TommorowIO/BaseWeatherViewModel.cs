@@ -11,8 +11,6 @@ namespace WeatherApiApp.ViewModel.TommorowIO
 {
 	public abstract class BaseWeatherViewModel : BaseViewModel
 	{
-
-		protected Dictionary<string, string> _weatherProperties = new Dictionary<string, string>();
 		protected IWeatherCurrentModel _weatherDataModel;
 		protected IGetWeatherDataSvc _dataService;
 	}

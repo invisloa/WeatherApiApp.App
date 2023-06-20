@@ -12,7 +12,7 @@ using WeatherApiApp.Services.Interfaces;
 
 namespace WeatherApiApp.ViewModel.TommorowIO
 {
-	public class WeatherCurrentTIO_VM : BaseWeatherViewModel
+	public class WeatherCurrentTIO_VM : BaseWeatherViewModel, IWeatherCurrentViewModel
 	{
 		private WeatherProperty location;
 		private DateTime _lastUpdatedTime;
@@ -32,7 +32,7 @@ namespace WeatherApiApp.ViewModel.TommorowIO
 			}
 		}
 		#region Primary Data
-		public WeatherProperty Location { get => WeatherData.LocationName; set { } }
+		public WeatherProperty LocationName { get => WeatherData.LocationName; set { } }
 		public WeatherProperty Time { get => WeatherData.Time; set { } }
 		public WeatherProperty Temperature { get => WeatherData.Temperature; set { } }
 		public WeatherProperty TemperatureApparent { get => WeatherData.TemperatureApparent; set { } }

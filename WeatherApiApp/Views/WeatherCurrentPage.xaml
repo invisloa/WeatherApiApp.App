@@ -7,5 +7,42 @@
         <Label Text="ASDZXC" />
         <Label Text="{Binding WindSpeed.Name}" IsVisible="{Binding WindSpeed.Visibility}"/>
         <Label Text="{Binding WindSpeed.Value}" IsVisible="{Binding WindSpeed.Visibility}" />
+        
+        <Label Text="{Binding Location.Name}" IsVisible="{Binding Location.Visibility}"/>
+        <Label Text="{Binding Location.Value}" IsVisible="{Binding Location.Visibility}" />
+
+        <Label Text="{Binding Time.Name}" IsVisible="{Binding Time.Visibility}"/>
+        <Label Text="{Binding Time.Value}" IsVisible="{Binding Time.Visibility}" />
+
+        <Label Text="{Binding Temperature.Name}" IsVisible="{Binding Temperature.Visibility}"/>
+        <Label Text="{Binding Temperature.Value}" IsVisible="{Binding Temperature.Visibility}" />
+
+        <Label Text="{Binding TemperatureApparent.Name}" IsVisible="{Binding TemperatureApparent.Visibility}"/>
+        <Label Text="{Binding TemperatureApparent.Value}" IsVisible="{Binding TemperatureApparent.Visibility}" />
+
+        <Label Text="{Binding WeatherCode.Name}" IsVisible="{Binding WeatherCode.Visibility}"/>
+        <Label Text="{Binding WeatherCode.Value}" IsVisible="{Binding WeatherCode.Visibility}" />
+
+        <Label Text="{Binding PrecipitationProbability.Name}" IsVisible="{Binding PrecipitationProbability.Visibility}"/>
+        <Label Text="{Binding PrecipitationProbability.Value}" IsVisible="{Binding PrecipitationProbability.Visibility}" />
+
+        <Label Text="{Binding RainIntensity.Name}" IsVisible="{Binding RainIntensity.Visibility}"/>
+        <Label Text="{Binding RainIntensity.Value}" IsVisible="{Binding RainIntensity.Visibility}" />
+
+        <Label Text="{Binding SleetIntensity.Name}" IsVisible="{Binding SleetIntensity.Visibility}"/>
+        <Label Text="{Binding SleetIntensity.Value}" IsVisible="{Binding SleetIntensity.Visibility}" />
+
+        <Label Text="{Binding SnowIntensity.Name}" IsVisible="{Binding SnowIntensity.Visibility}"/>
+        <Label Text="{Binding SnowIntensity.Value}" IsVisible="{Binding SnowIntensity.Visibility}" />
+
+        <Label Text="{Binding FreezingRainIntensity.Name}" IsVisible="{Binding FreezingRainIntensity.Visibility}"/>
+        <Label Text="{Binding FreezingRainIntensity.Value}" IsVisible="{Binding FreezingRainIntensity.Visibility}" />
+
+        <Label Text="{Binding WindSpeed.Name}" IsVisible="{Binding WindSpeed.Visibility}"/>
+        <Label Text="{Binding WindSpeed.Value}" IsVisible="{Binding WindSpeed.Visibility}" />
+
+        <Label Text="{Binding PressureSurfaceLevel.Name}" IsVisible="{Binding PressureSurfaceLevel.Visibility}"/>
+        <Label Text="{Binding PressureSurfaceLevel.Value}" IsVisible="{Binding PressureSurfaceLevel.Visibility}" />
+
     </StackLayout>
 </ContentPage>

@@ -2,13 +2,67 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace WeatherApiApp.Model.TommorowIO
 {
 	public class WeatherModelTommorowIOCurrent : WeatherModelTommorowIOBase
 	{
+		public Location location { get; set; }
+/*		public int code { get; set; }
+		public string type { get; set; }
+		public string message { get; set; }
+*/
+
 		#region Interface Properties
+/*		private WeatherProperty _errorCode;
+		public override WeatherProperty ErrorCode
+		{
+			get
+			{
+				return _errorCode ?? (_errorCode = new WeatherProperty("Temperature", code.ToString()));
+			}
+			set
+			{
+				if (int.TryParse(value.Value, out int errorCode))
+				{
+					_errorCode = value;
+				}
+				else
+				{
+					// Handle the case when parsing fails
+					throw new ArgumentException("Invalid _errorCode value.");
+				}
+			}
+		}
+
+		private WeatherProperty _errorType;
+		public override WeatherProperty ErrorType
+		{
+			get
+			{
+				return _errorType ?? (_errorType = new WeatherProperty("ErrorType", _errorType.ToString()));
+			}
+			set
+			{
+					_errorType = value;
+			}
+		}
+
+		private WeatherProperty _message;
+		public override WeatherProperty ErrorMessage
+		{
+			get
+			{
+				return _message ?? (_message = new WeatherProperty("ErrorMessage", _message.ToString()));
+			}
+			set
+			{
+				_message = value;
+			}
+		}
+*/
 		private WeatherProperty _temperature;
 		public override WeatherProperty Temperature
 		{
@@ -26,7 +80,7 @@ namespace WeatherApiApp.Model.TommorowIO
 				else
 				{
 					// Handle the case when parsing fails
-					throw new ArgumentException("Invalid temperature value.");
+					throw new ArgumentException("Invalid temperaturesss value.");
 				}
 			}
 		}
@@ -78,7 +132,7 @@ namespace WeatherApiApp.Model.TommorowIO
 		{
 			get
 			{
-				return _locationGPS ?? (_locationGPS = new WeatherProperty("LocationGPS", $"{location.Latitude},{location.Longitude}"));
+				return _locationGPS ?? (_locationGPS = new WeatherProperty("LocationGPS", $"{location.lat},{location.lon}"));
 			}
 			set
 			{
@@ -87,35 +141,32 @@ namespace WeatherApiApp.Model.TommorowIO
 					double.TryParse(latAndLon[0], out double latValue) &&
 					double.TryParse(latAndLon[1], out double lonValue))
 				{
-					location.Latitude = latValue;
-					location.Longitude = lonValue;
+					location.lat = latValue;
+					location.lon = lonValue;
 					_locationGPS = value;
 				}
 				else
 				{
 					// Handle the case when parsing fails
-					throw new ArgumentException("Invalid GPS location value.");
+					throw new ArgumentException("Invalid GPS locations value.");
 				}
 			}
 		}
 		private WeatherProperty _locationName;
 		public override WeatherProperty LocationName
 		{
-			get
-			{
-				return _locationName ?? (_locationName = new WeatherProperty("LocationName", location.LocationName));
-			}
+			get => _locationName ?? (_locationName = new WeatherProperty("LocationName", location.name));
 			set
 			{
 				if (!string.IsNullOrEmpty(value.Value))
 				{
-					location.LocationName = value.Value;
+					location.name = value.Value;
 					_locationName = value;
 				}
 				else
 				{
 					// Handle the case when the value is null or empty
-					throw new ArgumentException("Invalid location name value.");
+					throw new ArgumentException("Invalid locations name value.");
 				}
 			}
 		}
@@ -295,7 +346,6 @@ namespace WeatherApiApp.Model.TommorowIO
 
 
 		public Data data { get; set; }
-		public LocationApi location { get; set; }
 		public class Data
 		{
 			public DateTime time { get; set; }
