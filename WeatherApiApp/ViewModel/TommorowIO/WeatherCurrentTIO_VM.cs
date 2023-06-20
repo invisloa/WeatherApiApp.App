@@ -15,6 +15,8 @@ namespace WeatherApiApp.ViewModel.TommorowIO
 	public class WeatherCurrentTIO_VM : BaseWeatherViewModel
 	{
 		private WeatherProperty location;
+		private DateTime _lastUpdatedTime;
+
 
 		public ICommand GetCurrentWeatherCommand { get; }
 		public IWeatherCurrentModel WeatherData
@@ -47,26 +49,20 @@ namespace WeatherApiApp.ViewModel.TommorowIO
 
 		public ObservableCollection<string> SomeList { get; set; }
 
-		public WeatherCurrentTIO_VM()
+		public WeatherCurrentTIO_VM(IWeatherCurrentModel weatherCurrentModel)
 		{
-			WeatherData = Factory.CreateWeatherCurrentDataModel;
-			IGetWeatherDataSvc _currentWeatherService = Factory.GetCurrentWeatherService;
-
-			// Call async method but don't wait for it in constructor
-			InitializeAsync(_currentWeatherService);
+			WeatherData = weatherCurrentModel;
 
 			GetCurrentWeatherCommand = new RelayCommand(GetCurrentWeather);
 		}
 
-		private async void InitializeAsync(IGetWeatherDataSvc currentWeatherService)
-		{
-			// Now we can await the method properly
-			WeatherData = await currentWeatherService.GetWeatherCurrentAsync();
-		}
 		private async void GetCurrentWeather()
 		{
-			WeatherData = await _dataService.GetWeatherCurrentAsync();
-			setProperties();
+			if (WeatherData == null || DateTime.Now - _lastUpdatedTime > TimeSpan.FromMinutes(10))
+			{
+				WeatherData = await _dataService.GetWeatherCurrentAsync();
+				setProperties();
+			}
 		}
 		private void setProperties()
 		{

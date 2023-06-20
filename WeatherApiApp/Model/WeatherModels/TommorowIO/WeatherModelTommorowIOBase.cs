@@ -23,7 +23,13 @@ namespace WeatherApiApp.Model.TommorowIO
 			[JsonPropertyName("type")]
 			public string LocationType { get; set; }
 		}
+		[JsonPropertyName("code")]
 
+		public int ErrorCode { get; set; }
+		[JsonPropertyName("type")]
+		public string ErrorType { get; set; }
+		[JsonPropertyName("message")]
+		public string ErrorMessage { get; set; }
 
 		public virtual WeatherProperty LocationGPS { get; set; }
 		public virtual WeatherProperty LocationName { get; set; }

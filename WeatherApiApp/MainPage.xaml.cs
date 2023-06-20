@@ -13,10 +13,6 @@ public partial class MainPage : ContentPage
 
 	private async void OnCounterClicked(object sender, EventArgs e)
 	{
-		var x = new WeatherServiceTommorowIO();
-		await x.GetWeatherCurrentAsync();
-		int i = 0;
-
 		Console.WriteLine("Hello, World!");
 
 	}

@@ -5,7 +5,7 @@
              Title="WeatherCurrentPage">
     <StackLayout>
         <Label Text="ASDZXC" />
-        <Label Text="{Binding WindSpeed.Name}" />
-        <Label Text="{Binding WindSpeed.Value}" />
+        <Label Text="{Binding WindSpeed.Name}" IsVisible="{Binding WindSpeed.Visibility}"/>
+        <Label Text="{Binding WindSpeed.Value}" IsVisible="{Binding WindSpeed.Visibility}" />
     </StackLayout>
 </ContentPage>

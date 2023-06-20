@@ -9,6 +9,7 @@
 
 #region highLater
 // Make viewmodels for every type of _dataService
+// refresh weather button with GetCurrentWeatherCommand
 
 #endregion
 
