@@ -52,7 +52,7 @@ namespace WeatherApiApp.ViewModel.TommorowIO
 		public WeatherCurrentTIO_VM(IGetWeatherDataSvc _currentWeatherService)
 		{
 			WeatherData = _currentWeatherService.GetWeatherCurrentAsync().Result;
-
+			_dataService = _currentWeatherService;
 			GetCurrentWeatherCommand = new RelayCommand(GetCurrentWeather);
 		}
 
