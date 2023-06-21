@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherApiApp.Model.TommorowIO;
 using WeatherApiApp.Model.WeatherModels;
+using WeatherApiApp.Services.Converters;
 using WeatherApiApp.Services.Interfaces;
 
 namespace WeatherApiApp.Services.WeatherServices
@@ -49,13 +50,15 @@ namespace WeatherApiApp.Services.WeatherServices
 			}
 			if(!response.IsSuccessStatusCode)
 			{
-				throw new Exception($"Error: {response.StatusCode}");
+				throw new Exception($"Error: {response.StatusCode}"); // TODO EXCEPTION HANDLE
 			}
 
 			string responseBody = await response.Content.ReadAsStringAsync();
 			try
-			{ 
-			_weatherCurrentModel = JsonConvert.DeserializeObject<WeatherModelTommorowIOCurrent>(responseBody);  // DESERIALIZE TO A CONCRETE OBJECT TODO CONVERTER IF NEEDED LATER
+			{
+				JsonSerializerSettings settings = new JsonSerializerSettings();
+				settings.Converters.Add(new JsonIWeatherCurrentConverter());
+				_weatherCurrentModel = JsonConvert.DeserializeObject<WeatherModelTommorowIOCurrent>(responseBody, settings);  // DESERIALIZE TO A CONCRETE OBJECT TODO CONVERTER IF NEEDED LATER
 			return _weatherCurrentModel;
 			}
 			catch (Exception ex)

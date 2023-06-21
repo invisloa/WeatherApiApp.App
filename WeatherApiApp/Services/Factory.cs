@@ -17,7 +17,7 @@ namespace WeatherApiApp.Services
 		public static IWeatherCurrentModel CreateWeatherCurrentDataModel => new WeatherModelTommorowIOCurrent();
 
 		public static IGetWeatherDataSvc CreateCurrentWeatherService => new WeatherServiceTommorowIO();
-
+		public static IWeatherCurrentModel CreateWeatherModelTommorowIOCurrent { get => new WeatherModelTommorowIOCurrent(); }
 		public static IWeatherCurrentViewModel CreateCurrentWeatherViewModel { get => new WeatherCurrentTIO_VM(Factory.CreateCurrentWeatherService); }
 	}
 }
