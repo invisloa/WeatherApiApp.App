@@ -1,7 +1,5 @@
 ﻿
 #region current
-//			IWeatherCurrentModel target = jObject["data"].ToString() switch       
-// TO DO CURRENT		if (((JObject)jObject["data"]).ContainsKey("time"))
 
 
 #endregion
@@ -24,9 +22,3 @@
 
 
 
-#region done
-// Make model for every method to get _dataService+
-// make at least one working weather view +
-// ContentView => ContentPage Cast error+
-
-#endregion
