@@ -58,7 +58,7 @@ namespace WeatherApiApp.Services.WeatherServices
 			{
 				JsonSerializerSettings settings = new JsonSerializerSettings();
 				settings.Converters.Add(new JsonIWeatherCurrentConverter());
-				_weatherCurrentModel = JsonConvert.DeserializeObject<WeatherModelTommorowIOCurrent>(responseBody, settings);  // DESERIALIZE TO A CONCRETE OBJECT TODO CONVERTER IF NEEDED LATER
+				_weatherCurrentModel = JsonConvert.DeserializeObject<WeatherModelTommorowIOCurrent>(responseBody, settings);  // settings for a deserialization settings (converter to choose a propper class to deserialize to)
 			return _weatherCurrentModel;
 			}
 			catch (Exception ex)

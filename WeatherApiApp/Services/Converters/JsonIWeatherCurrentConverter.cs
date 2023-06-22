@@ -21,17 +21,22 @@ namespace WeatherApiApp.Services.Converters
 			JObject jObject = JObject.Load(reader);
 
 			// Choose the concrete type based on the 'Type' property
-			IWeatherCurrentModel target = jObject["data"].ToString() switch                           // TO DO CURRENT
+			// TO DO CURRENT		if (((JObject)jObject["data"]).ContainsKey("time"))
+
+			IWeatherCurrentModel targetWeather;
+			if (((JObject)jObject["data"]).ContainsKey("values"))
 			{
-				"values" => Factory.CreateWeatherModelTommorowIOCurrent,
-				
-				_ => throw new InvalidDataException("Invalid Type property"),
+				targetWeather = Factory.CreateWeatherModelTommorowIOCurrent;
+			}
+			else
+			{
+				throw new InvalidDataException("Invalid Type property");				// TODO handle bad data error
 			};
 
 			// Populate the object properties
-			serializer.Populate(jObject.CreateReader(), target);
+			serializer.Populate(jObject.CreateReader(), targetWeather);
 
-			return target;
+			return targetWeather;
 		}
 
 		public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
