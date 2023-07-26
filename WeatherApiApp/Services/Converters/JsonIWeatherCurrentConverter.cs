@@ -23,10 +23,10 @@ namespace WeatherApiApp.Services.Converters
 			// Choose the concrete type based on the 'Type' property
 			// TO DO CURRENT		if (((JObject)jObject["data"]).ContainsKey("time"))
 
-			IWeatherCurrentModel targetWeather;
+			IWeatherCurrentModel targetWeatherModel;
 			if (((JObject)jObject["data"]).ContainsKey("values"))
 			{
-				targetWeather = Factory.CreateWeatherModelTommorowIOCurrent;
+				targetWeatherModel = Factory.CreateWeatherModelTommorowIOCurrent;
 			}
 			else
 			{
@@ -34,9 +34,9 @@ namespace WeatherApiApp.Services.Converters
 			};
 
 			// Populate the object properties
-			serializer.Populate(jObject.CreateReader(), targetWeather);
+			serializer.Populate(jObject.CreateReader(), targetWeatherModel);
 
-			return targetWeather;
+			return targetWeatherModel;
 		}
 
 		public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
